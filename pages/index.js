@@ -8,13 +8,11 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
-  // ログイン処理
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/users/login/', { username, password })
+      const response = await axios.post('https://devstore-be.onrender.com/api/users/login/', { username, password })
       const { access, refresh } = response.data
-      // JWTトークンを localStorage に保存
       localStorage.setItem('accessToken', access)
       localStorage.setItem('refreshToken', refresh)
       router.push('/home')

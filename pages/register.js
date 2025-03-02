@@ -17,7 +17,7 @@ export default function Register() {
       return
     }
     try {
-      await axios.post('http://127.0.0.1:8000/api/users/register/', { username, email, password, password2 })
+      await axios.post('https://devstore-be.onrender.com/api/users/register/', { username, email, password, password2 })
       router.push('/')
     } catch (err) {
       setError('登録に失敗しました')

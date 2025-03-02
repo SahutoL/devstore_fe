@@ -15,7 +15,7 @@ export default function Home() {
       router.push('/')
       return
     }
-    axios.get('http://127.0.0.1:8000/api/developers/list/', {
+    axios.get('https://devstore-be.onrender.com/api/developers/list/', {
       headers: { Authorization: `Bearer ${accessToken}` }
     })
       .then(res => setDevelopers(res.data))
@@ -25,7 +25,7 @@ export default function Home() {
   const handleAddDeveloper = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post('http://127.0.0.1:8000/api/developers/create/', { url }, {
+      const res = await axios.post('https://devstore-be.onrender.com/api/developers/create/', { url }, {
         headers: { Authorization: `Bearer ${accessToken}` }
       })
       setDevelopers([...developers, res.data])
@@ -38,7 +38,7 @@ export default function Home() {
   const handleDelete = async (id) => {
     if (confirm('このデベロッパーを削除してもよろしいですか？')) {
       try {
-        await axios.delete(`http://127.0.0.1:8000/api/developers/delete/${id}/`, {
+        await axios.delete(`https://devstore-be.onrender.com/api/developers/delete/${id}/`, {
           headers: { Authorization: `Bearer ${accessToken}` }
         })
         setDevelopers(developers.filter(dev => dev.id !== id))

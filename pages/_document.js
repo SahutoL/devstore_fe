@@ -5,10 +5,8 @@ class MyDocument extends Document {
     return (
       <Html lang="ja">
         <Head>
-          {/* マニフェストファイルのリンク */}
           <link rel="manifest" href="/manifest.json" />
           <meta name="theme-color" content="#000000" />
-          {/* Apple Touch Icon */}
           <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         </Head>
         <body>

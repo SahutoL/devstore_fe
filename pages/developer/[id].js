@@ -13,7 +13,7 @@ export default function DeveloperDetail() {
 
   useEffect(() => {
     if (!id || !accessToken) return
-    axios.get(`http://127.0.0.1:8000/api/developers/${id}/`, {
+    axios.get(`https://devstore-be.onrender.com/api/developers/${id}/`, {
       headers: { Authorization: `Bearer ${accessToken}` }
     })
       .then(res => setDeveloper(res.data))
@@ -23,7 +23,7 @@ export default function DeveloperDetail() {
   const handleDelete = async () => {
     if (confirm('このデベロッパーを削除してもよろしいですか？')) {
       try {
-        await axios.delete(`http://127.0.0.1:8000/api/developers/delete/${id}/`, {
+        await axios.delete(`https://devstore-be.onrender.com/api/developers/delete/${id}/`, {
           headers: { Authorization: `Bearer ${accessToken}` }
         })
         router.push('/home')
